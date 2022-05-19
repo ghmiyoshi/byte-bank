@@ -1,4 +1,26 @@
 fun main(args: Array<String>) {
+    val contaGabriel = Conta()
+    contaGabriel.titular = "Gabriel"
+    println(contaGabriel.titular)
+
+    val contaKah = Conta()
+    contaKah.titular = "Kah"
+    contaKah.numero = 234
+    contaKah.saldo = 10.0
+    println(contaKah.titular)
+    println(contaKah.numero)
+    println(contaKah.saldo)
+    // testaLacos()
+    // testaCondicoes(saldo)
+}
+
+class Conta {
+    var titular = ""
+    var numero = 0
+    var saldo = 0.0
+}
+
+fun testaLacos() {
     for (i in 1..3) {
         val titular = "Gabriel $i"
         val numeroDeConta: Int = 1000 + i
@@ -59,8 +81,6 @@ fun main(args: Array<String>) {
         println(i)
         i++
     } while (i < 5)
-
-    // testaCondicoes(saldo)
 }
 
 fun testaCondicoes(saldo: Double) {
