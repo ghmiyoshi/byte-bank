@@ -6,13 +6,27 @@ fun main(args: Array<String>) {
     val contaKah = Conta()
     contaKah.titular = "Kah"
     contaKah.numero = 234
-    contaKah.saldo = 10.0
-    // println(contaKah.titular)
-    // println(contaKah.numero)
-    // println(contaKah.saldo)
+    contaKah.saldo = 0.0
+    contaKah.deposita(10.0)
+    println(contaKah.titular)
+    println(contaKah.numero)
+    println(contaKah.saldo)
     // testaLacos()
     // testaCondicoes(saldo)
+    // testaCopiaEReferencias()
+}
 
+class Conta {
+    var titular = ""
+    var numero = 0
+    var saldo = 0.0
+
+    fun deposita(valor: Double) {
+        this.saldo += valor
+    }
+}
+
+fun testaCopiaEReferencias() {
     var numeroX = 10
     var numeroY = numeroX
     numeroY++
@@ -26,12 +40,6 @@ fun main(args: Array<String>) {
 
     println(contaMaria.titular)
     println(contaJoao.titular)
-}
-
-class Conta {
-    var titular = ""
-    var numero = 0
-    var saldo = 0.0
 }
 
 fun testaLacos() {
