@@ -1,17 +1,31 @@
 fun main(args: Array<String>) {
     val contaGabriel = Conta()
     contaGabriel.titular = "Gabriel"
-    println(contaGabriel.titular)
+    // println(contaGabriel.titular)
 
     val contaKah = Conta()
     contaKah.titular = "Kah"
     contaKah.numero = 234
     contaKah.saldo = 10.0
-    println(contaKah.titular)
-    println(contaKah.numero)
-    println(contaKah.saldo)
+    // println(contaKah.titular)
+    // println(contaKah.numero)
+    // println(contaKah.saldo)
     // testaLacos()
     // testaCondicoes(saldo)
+
+    var numeroX = 10
+    var numeroY = numeroX
+    numeroY++
+
+    println(numeroY)
+    println(numeroX)
+
+    var contaJoao = Conta()
+    var contaMaria = contaJoao
+    contaMaria.titular = "Maria"
+
+    println(contaMaria.titular)
+    println(contaJoao.titular)
 }
 
 class Conta {
