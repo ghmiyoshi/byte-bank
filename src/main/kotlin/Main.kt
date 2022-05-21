@@ -7,10 +7,17 @@ fun main(args: Array<String>) {
     contaKah.titular = "Kah"
     contaKah.numero = 234
     contaKah.saldo = 0.0
+
+    println("Deposita conta da Kah")
     contaKah.deposita(10.0)
+    println(contaKah.saldo)
+
+    println("Saque conta da Kah")
+    contaKah.saca(5.0)
+    println(contaKah.saldo)
+
     println(contaKah.titular)
     println(contaKah.numero)
-    println(contaKah.saldo)
     // testaLacos()
     // testaCondicoes(saldo)
     // testaCopiaEReferencias()
@@ -23,6 +30,12 @@ class Conta {
 
     fun deposita(valor: Double) {
         this.saldo += valor
+    }
+
+    fun saca(valor: Double) {
+        if (this.saldo >= valor) {
+            this.saldo -= valor
+        }
     }
 }
 
