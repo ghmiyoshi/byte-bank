@@ -21,6 +21,12 @@ fun main(args: Array<String>) {
     // testaLacos()
     // testaCondicoes(saldo)
     // testaCopiaEReferencias()
+
+    contaKah.transfere(contaGabriel, 5.0)
+
+    println("Transferência entre contas")
+    println(contaGabriel.saldo)
+    println(contaKah.saldo)
 }
 
 class Conta {
@@ -36,6 +42,11 @@ class Conta {
         if (this.saldo >= valor) {
             this.saldo -= valor
         }
+    }
+
+    fun transfere(conta: Conta, valor: Double) {
+        this.saca(valor)
+        conta.deposita(valor)
     }
 }
 
