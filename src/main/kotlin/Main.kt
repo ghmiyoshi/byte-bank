@@ -1,11 +1,8 @@
 fun main(args: Array<String>) {
-    val contaGabriel = Conta()
-    contaGabriel.titular = "Gabriel"
-    // println(contaGabriel.titular)
+    val contaGabriel = Conta("Gabriel", 123)
+    println(contaGabriel.titular)
 
-    val contaKah = Conta()
-    contaKah.titular = "Kah"
-    contaKah.numero = 234
+    val contaKah = Conta("Kah", 456)
 
     println("Deposita conta da Kah")
     contaKah.deposita(10.0)
@@ -28,9 +25,10 @@ fun main(args: Array<String>) {
     println(contaKah.saldo)
 }
 
-class Conta {
-    var titular = ""
-    var numero = 0
+class Conta(
+    var titular: String,
+    var numero: Int
+) {
     var saldo = 0.0
         private set
 
@@ -59,7 +57,7 @@ fun testaCopiaEReferencias() {
     println(numeroY)
     println(numeroX)
 
-    var contaJoao = Conta()
+    var contaJoao = Conta("João", 1001)
     var contaMaria = contaJoao
     contaMaria.titular = "Maria"
 
