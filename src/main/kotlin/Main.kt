@@ -1,21 +1,19 @@
 fun main(args: Array<String>) {
     val contaGabriel = Conta()
     contaGabriel.titular = "Gabriel"
-    contaGabriel.setSaldo(-300.0)
-    println(contaGabriel.getSaldo())
+    // println(contaGabriel.titular)
 
     val contaKah = Conta()
     contaKah.titular = "Kah"
     contaKah.numero = 234
-    contaKah.getSaldo()
 
     println("Deposita conta da Kah")
     contaKah.deposita(10.0)
-    println(contaKah.getSaldo())
+    println(contaKah.saldo)
 
     println("Saque conta da Kah")
     contaKah.saca(5.0)
-    println(contaKah.getSaldo())
+    println(contaKah.saldo)
 
     println(contaKah.titular)
     println(contaKah.numero)
@@ -26,17 +24,19 @@ fun main(args: Array<String>) {
     contaKah.transfere(contaGabriel, 5.0)
 
     println("Transferência entre contas")
-    println(contaGabriel.getSaldo())
-    println(contaKah.getSaldo())
+    println(contaGabriel.saldo)
+    println(contaKah.saldo)
 }
 
 class Conta {
     var titular = ""
     var numero = 0
-    private var saldo = 0.0
+    var saldo = 0.0
+        private set
 
     fun deposita(valor: Double) {
-        this.saldo += valor
+        if (valor > 0)
+            this.saldo += valor
     }
 
     fun saca(valor: Double) {
@@ -48,16 +48,6 @@ class Conta {
     fun transfere(conta: Conta, valor: Double) {
         this.saca(valor)
         conta.deposita(valor)
-    }
-
-    fun getSaldo(): Double {
-        return saldo
-    }
-
-    fun setSaldo(valor: Double) {
-        if (valor > 0) {
-            this.saldo = valor
-        }
     }
 }
 
