@@ -1,8 +1,8 @@
 fun main(args: Array<String>) {
-    val contaGabriel = Conta("Gabriel", 123)
+    val contaGabriel = Conta(titular = "Gabriel", numero = 123)
     println(contaGabriel.titular)
 
-    val contaKah = Conta("Kah", 456)
+    val contaKah = Conta(numero = 456, titular = "Kah")
 
     println("Deposita conta da Kah")
     contaKah.deposita(10.0)
@@ -18,7 +18,7 @@ fun main(args: Array<String>) {
     // testaCondicoes(saldo)
     // testaCopiaEReferencias()
 
-    contaKah.transfere(contaGabriel, 5.0)
+    contaKah.transfere(valor = 5.0, destino = contaGabriel)
 
     println("Transferência entre contas")
     println(contaGabriel.saldo)
@@ -27,7 +27,7 @@ fun main(args: Array<String>) {
 
 class Conta(
     var titular: String,
-    var numero: Int
+    val numero: Int
 ) {
     var saldo = 0.0
         private set
@@ -43,9 +43,9 @@ class Conta(
         }
     }
 
-    fun transfere(conta: Conta, valor: Double) {
+    fun transfere(destino: Conta, valor: Double) {
         this.saca(valor)
-        conta.deposita(valor)
+        destino.deposita(valor)
     }
 }
 
